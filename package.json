@@ -1,0 +1,13 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+   "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "connect": "~3.1.1",
+    "express": "^4.15.3",
+    "serve-static": "~1.5.3",
+    "x-frame-options": "^1.0.0"
+  }
+}
