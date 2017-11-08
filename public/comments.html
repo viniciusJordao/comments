@@ -1,0 +1,17 @@
+<div class="coments">
+	<ul>
+	  <h4>Comentários</h4>
+	  <li ng-repeat="comment in comments.commentList ">
+		<blockquote>
+		  {{comment}}
+		  <cite>{{user.data[0].login}}</cite>
+		  <span class="ico-trash" ng-click="comments.deleteComment(comment)"></span>
+		</blockquote>
+	  </li>
+	</ul>
+	<textarea rows="4" cols="50" ng-model="comments.newComment">
+	</textarea>
+	<div class="commands">
+		<div ng-click="comments.sendComment()">Comentar</div>
+	</div>
+</div>

@@ -4,59 +4,19 @@
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
-	
 	<body ng-controller="UsersController as user">
 		<div ng-controller="LoginController as log">
-		<header>
-			<h2>OnePageEnterprises</h2>
-			<div class="login" ng-show="log.logOn" ng-hide="log.logOff">
-				<h3>
-					{{user.data[0].login}} logado 
-				</h3>
-				<a ng-click="log.exit()">Sair</a>
-			</div>
-			<div ng-hide="log.logOn" ng-show="log.logOff">
-			  <form id="frmLogin" class="loginForm" >
-				<div class="line">
-					<input type="text" id="username" placeholder="Usuário" size="20" class="" ng-model="log.login"/>
+			<login>
+			</login>
+			<div id="container">
+				<div class="image">
+					<img src="img/img-01.jpg">
 				</div>
-				<div class="line">
-					<input type="password" id="password" placeholder="Senha" size="20" class="" ng-model="log.pass" />
-				</div>
-				<div class="line">
-					<div class="commands">
-						<div id="login"" ng-click="log.loginAction()">Entrar</div>
-					</div>
-				</div>
-			</form>
-
+				<comments  ng-show="log.logOn" >
+				</comments>
 			</div>
-		</header>
-		<div id="container" ng-controller="CommentsController as comments">
-			<div class="image">
-				<img src="img/img-01.jpg">
-			</div>
-			<div class="coments" ng-show="log.logOn">
-				<ul>
-				  <h4>Comentários</h4>
-				  <li ng-repeat="comment in comments.commentList ">
-					<blockquote>
-					  {{comment}}
-					  <cite>{{user.data[0].login}}</cite>
-					  <span class="ico-trash" ng-click="comments.deleteComment(comment)"></span>
-					</blockquote>
-				  </li>
-				</ul>
-				<textarea rows="4" cols="50" ng-model="comments.newComment">
-				</textarea>
-				<div class="commands">
-					<div ng-click="comments.sendComment()">Comentar</div>
-				</div>
-			</div>
-		</div>
 		</div>
 	</body>
-	
 		<script type="text/javascript" src="js/angular.min.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 </html>

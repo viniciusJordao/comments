@@ -1,7 +1,7 @@
 (function() {
   var app = angular.module('comments', []);
 	
-	app.controller('UsersController', function(){
+  app.controller('UsersController', function(){
     this.data = usersData;
   });
 	
@@ -26,7 +26,19 @@
 	  
 	 
   });  
-  app.controller('CommentsController', function($scope){	
+  
+  app.directive("login", function() {
+    return {
+      restrict: "E",
+      templateUrl: "login.html",
+    };
+  });
+  
+  app.directive("comments", function() {
+    return {
+      restrict: "E",
+      templateUrl: "comments.html",
+      controller: function($scope){	
 		
 	  this.display = false;
 	  this.commentList = usersData[0].comments
@@ -34,13 +46,16 @@
 	  	  
 	  
 	  this.sendComment = function(){
+		  if(this.newComment === ""){
+			  return false;
+		  }
+		  
 		  this.commentList.push(this.newComment);
-		  console.log(this.newComment);
+		  
 		  
 	  };
 	  
 	  this.deleteComment = function(comment){
-		  
 		  
 		  for(i = 0; i < this.commentList.length; i++){
 			  if(comment === this.commentList[i]){
@@ -48,11 +63,14 @@
 			  }
 		  }
 		  
-	  }
-	  
-
-  });  
-
+		}
+	  },  
+      controllerAs: "comments"
+    };
+  });
+  
+  
+  
     var usersData = [
   
 	  {
